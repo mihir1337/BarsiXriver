@@ -1,0 +1,94 @@
+/* 
+    support-start
+*/
+.px-support {
+    &-area {
+        padding-top: 240px;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @media #{$xxl,$xl,$lg,$md} {
+            background-size: auto;
+        }
+
+        @media #{$xs} {
+            background-size: auto;
+            background-color: #8B5BFA;
+            padding-top: 140px;
+        }
+
+    }
+    &-wrap {
+        display: grid;
+        grid-template-columns: .73fr auto;
+        gap: 50px;
+        align-items: end;
+        justify-content: space-between;
+
+        @media #{$xl} {
+            grid-template-columns: 1fr auto;
+        }
+
+        @media #{$lg,$md} {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media #{$xs} {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+    &-content {
+        padding-bottom: 120px;
+
+        .px-scn-title-1 {
+            margin-bottom: 15px;
+            color: var(--px-clr-white-1);
+        }
+        .px-p-1 {
+            color: var(--px-clr-white-1);
+            margin-bottom: 33px;
+
+
+        }
+
+        .pf-pr-1 {
+            &:hover {
+                background: var(--px-clr-h-1);
+            }
+        }
+
+    }
+
+    &-img {
+        &-3 {
+            width: 35%;
+            position: absolute;
+            right: 20px;
+            top: -130px;
+        }
+        &-2 {
+            width: 36%;
+            position: absolute;
+            top: -136px;
+            left: 40px;
+        }
+    }
+
+    &-bg-shape {
+        position: absolute;
+        right: 0;
+        top: -30px;
+        z-index: -1;
+        overflow: hidden;
+
+        @media #{$md,$xs} {
+            display: none;
+        }
+    }
+}
+
+/* 
+    support-end
+*/

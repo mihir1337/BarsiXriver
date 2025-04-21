@@ -1,0 +1,126 @@
+
+
+.px-testimonial {
+
+    &-scn-title {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 15px;
+        align-items: center;
+
+        @media #{$md,$xs} {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    &-wrap {
+        gap: 20px;
+        display: flex;
+        height: 870px;
+        padding: 0 20px;
+        overflow: hidden;
+        margin-left: -20px;
+        margin-right: -20px;
+
+
+    }
+
+    &-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+
+        &:is(.t-content-4) {
+            justify-content: flex-end;
+            animation: slideup 20s linear infinite;
+
+            @media #{$lg,$md,$xs} {
+                display: none;
+            }
+        }
+        &:is(.t-content-3) {
+            justify-content: flex-start;
+            animation: slidedown 20s linear infinite;
+
+            @media #{$md,$xs} {
+                display: none;
+            }
+        }
+        &:is(.t-content-2) {
+            animation: slideup 20s linear infinite;
+            justify-content: flex-end;
+            @media #{$xs} {
+                display: none;
+            }
+            @media #{$sm} {
+                display: flex;
+            }
+        }
+        &:is(.t-content-1) {
+            animation: slidedown 20s linear infinite;
+            justify-content: flex-start;
+        }
+
+    }
+    &-item {
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 5px 30px 0 rgba(0,7,26,.08);
+        padding: 25px 22px;
+        margin-bottom: 15px;
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            .icon {
+                flex: 0 0 auto;
+            }
+            .name {
+                display: inline-block;
+                font-size: 18px;
+                font-weight: 700;
+                color: var(--px-clr-h-1);
+                text-transform: capitalize;
+                line-height: 1;
+                span {
+                    display: inline-block;
+                    font-weight: 400;
+                    color: #4D515F;
+                }
+            }
+        }
+        .text {
+            font-size: 18px;
+            line-height: 160%;
+            font-weight: 400;
+            color: var(--px-clr-p-1);
+            margin-bottom: 15px;
+        }
+        .ratting-wrap i {
+            font-size: 16px;
+            color: #FFB820;
+        }
+    }
+}
+
+
+
+
+@keyframes slideup {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+}
+@keyframes slidedown {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
