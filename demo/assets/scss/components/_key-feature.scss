@@ -32,17 +32,23 @@
             width: 68px;
             height: 68px;
             border-radius: 4px;
-            background: rgb(136 17 255 / 8%);
+            background: rgb(241 241 241);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 28px;
+
+            svg {
+                path {
+                    fill: var(--lw-clr-h-1);
+                }
+            }
         }
 
         .line {
             width: 100%;
             height: 1px;
-            background: #0A0E0E;
+            background: var(--lw-clr-h-1);
             opacity: 20%;
         }
 
@@ -71,17 +77,6 @@
             }
         }
 
-        &:nth-child(2) {
-            .icon {
-                background: rgb(255 39 89 / 8%);
-            }
-        }
-
-        &:nth-child(3) {
-            .icon {
-                background: rgb(21 212 212 / 8%);
-            }
-        }
     }
 
     &-bg-img {

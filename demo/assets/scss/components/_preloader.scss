@@ -3,7 +3,7 @@
 */
 
 
-#preloader {
+.lw-preloader {
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -11,108 +11,41 @@
 	width: 100%;
 	z-index: 99999999;
     overflow: hidden;
+	display: flex;
     align-items: center;
     justify-content: center;
 	background-color: #fff;
 	transition: all 1s cubic-bezier(0.55, 0.085, 0, 0.99);
 
-	.preloader-wrap {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
 
-		.loader {
-			display: flex;
-			gap: 5px;
-			align-items: end;
-		}
-		
-		.dot {
-			width: 10px;
-			height: 20px;
-			background-color: var(--px-clr-pr-1);
-			border-radius: 5px;
-			animation: heightBounce 0.6s infinite alternate;
-		}
-		
-		.dot:nth-child(2) {
-			animation-delay: 0.1s;
-			opacity: .9;
-		}
-		.dot:nth-child(3) {
-			animation-delay: 0.2s;
-			opacity: .8;
-		}
-		.dot:nth-child(4) {
-			animation-delay: 0.3s;
-			opacity: .7;
-		}
-		.dot:nth-child(5) {
-			animation-delay: 0.4s;
-			opacity: .6;
-		}
-		
-
+	&::after {
+		content: "";
+		width: 200px;
+		height: 110px;
+		border: 2px solid var(--lw-clr-pr-1);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: all 1s cubic-bezier(0.55, 0.085, 0, 0.99);
 	}
+	&-content {
+		overflow: hidden;
+		width: 200px;
+		transition: all 1s cubic-bezier(0.55, 0.085, 0, 0.99);
+	}
+	
 
 	&:is(.preloaded) {
-		transform: scale(.9) translateY(100%);
-		border-radius: 20px;
-	}
-
-
-	&:is(.has-home-2) {
-		background: var(--pf-clr-white-1);
-		.dot {
-			background-color: var(--pf-clr-pr-2);
+		&::after {
+			width: 0px;
+		}
+		.lw-preloader-content {
+			width: 0px;
 		}
 	}
 
-	&:is(.has-home-3) {
-		background: var(--pf-clr-white-1);
-		.dot {
-			background-color: var(--pf-clr-pr-3);
-		}
-	}
 
-	&:is(.has-home-4) {
-		background: var(--pf-clr-white-1);
-		.dot {
-			background-color: var(--pf-clr-black-6);
-		}
-	}
-
-	&:is(.has-home-5) {
-		background: var(--pf-clr-white-1);
-		.dot {
-			background-color: var(--pf-clr-pr-5);
-		}
-	}
-
-	&:is(.has-home-6) {
-		background: var(--pf-clr-white-1);
-		.dot {
-			background-color: var(--pf-clr-pr-6);
-		}
-	}
-
-	&:is(.has-inner-page) {
-		background: #E7F9FA;
-		// .dot {
-		// 	background-color: var(--pf-clr-pr-6);
-		// }
-	}
-}
-
-
-@keyframes heightBounce {
-	from {
-		height: 10px;
-	}
-	to {
-		height: 50px;
-	}
 }
 
 

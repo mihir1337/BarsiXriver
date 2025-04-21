@@ -4,65 +4,89 @@
 .px-footer {
 
     &-area {
-        background-color: var(--px-clr-sd-1);
+        background-color: #0C0C0C;
+        margin-bottom: 24px;
     }
 
-    &-ani {
-        background-color: #081031;
-        border-radius: 40px 40px 0 0;
+    &-bg-glow {
+        width: 56%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
     }
 
-    &-content {
-        text-align: center;
-        max-width: 662px;
-        margin-left: auto;
-        margin-right: auto;
+    &-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+        gap: 50px;
+        align-items: end;
+        margin-right: -50px;
 
-        .icon {
-            margin-bottom: 48px;
+        @media #{$xxxl,$xxl,$xl,$lg} {
+            margin-right: 0px;
         }
 
-        .px-scn-title-1 {
-            color: var(--px-clr-white-1);
-            font-size: 60px;
-            line-height: 1.066;
-            margin-bottom: 24px;
-            font-weight: 700;
-
-                @media #{$xl} {
-                    font-size: 50px;
-                }
-
-                @media #{$lg} {
-                    font-size: 45px;
-                }
-
-                @media #{$md} {
-                    font-size: 40px;
-                }
-
-                @media #{$xs} {
-                    font-size: 30px;
-                }
-
-                @media #{$sm} {
-                    font-size: 35px;
-                }
-        }
-
-        .px-p-1 {
-            font-size: 24px;
-            line-height: 32px;
-            color: var(--px-clr-white-1);
-            margin-bottom: 40px;
-        }
-
-        .pf-pr-1 {
-            padding: 15px 24px;
-            gap: 8px;
+        @media #{$md,$xs} {
+            margin-right: 0px;
+            grid-template-columns: 1fr;
         }
     }
     
+    &-content {
+        padding-bottom: 134px;
+
+        @media #{$md,$xs} {
+            padding-bottom: 0px;
+        }
+
+        > .icon {
+            margin-bottom: 48px;
+        }
+
+        .title {
+            color: var(--lw-clr-white-1);
+            margin-bottom: 24px;
+            span {
+                color: var(--lw-clr-pr-1);
+            }
+        }
+
+        .disc {
+            font-size: 24px;
+            line-height: 32px;
+            color: var(--lw-clr-white-1);
+            margin-bottom: 40px;
+            opacity: 88%;
+            font-weight: 300;
+        }
+
+    }
+    
+
+    &-img {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: end;
+
+
+        &-single {
+            margin-right: -175px;
+            filter: drop-shadow(28px -24px 40px rgba(0, 0, 0, 0.32));
+
+
+            &:nth-child(1) {
+                position: relative;
+                z-index: 2;
+
+            }
+            &:nth-child(2) {
+                position: relative;
+                z-index: 1;
+            }
+        }
+    }
 
     &-copyright {
         display: flex;
@@ -82,22 +106,22 @@
         }
     
         .design {
-            color: var(--px-clr-white-1);
+            color: var(--lw-clr-white-1);
             text-transform: capitalize;
             opacity: 80%;
 
             a {
-                color: var(--px-clr-pr-1);
+                color: var(--lw-clr-pr-1);
                 font-weight: 500;
-                transition: all .5s var(--px-cube-1);
+                transition: all .5s var(--lw-cube-1);
                 &:hover {
-                    color: var(--px-clr-sd-1);
+                    transform: translateX(5px);
                 }
             }
         }
 
         .copyright-text {
-            color: var(--px-clr-white-1);
+            color: var(--lw-clr-white-1);
             opacity: 80%;
         }
     }
@@ -118,12 +142,12 @@
             background: rgba(255, 255, 255, 0.08);
             box-shadow: inset 0px -1px 1px rgba(255, 255, 255, 0.23);
             border-radius: 50%;
-            color: var(--px-clr-white-1);
-            transition: all .5s var(--px-cube-1);
+            color: var(--lw-clr-white-1);
+            transition: all .5s var(--lw-cube-1);
 
             &:hover {
-                box-shadow: inset 0px -1px 1px rgb(255 39 89);
-                color: var(--px-clr-pr-1);
+                box-shadow: inset 0px -1px 1px rgb(219 166 110);
+                color: var(--lw-clr-pr-1);
             }
         }
     }

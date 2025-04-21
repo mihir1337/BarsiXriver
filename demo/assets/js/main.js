@@ -1,5 +1,5 @@
 /*
-	Author: themexriver
+	Author: boom-theme
 	Version: 1.0
 */
 
@@ -49,7 +49,7 @@ $('a[href^="#"]').on('click', function (e) {
 // preloader
 document.addEventListener("DOMContentLoaded", function () {
 
-	let preloader = document.querySelector("#preloader");
+	let preloader = document.querySelector(".lw-preloader");
 
 	window.addEventListener('load', function(){
 
@@ -97,23 +97,16 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-		var heroIllus = gsap.timeline({
-				defaults: { duration:1,
-                ease: "ease1", } 
-		});
-        heroIllus.from(".px-hero-illus svg path" , { yPercent: 100, stagger: .3, delay: 2 })
 
-		var heroDemo = gsap.timeline({
-				defaults: { duration:1,
-                ease: "ease1", } 
+		var heroImg = gsap.timeline({
+				defaults: { 
+					duration:1,
+                ease: "ease1", 
+			} 
 		});
-        heroDemo.from(".px-hero-demo-single" , { yPercent: 100, stagger: .2, delay: 1 })
+        heroImg.from(".px-hero-content-img img" , { yPercent: 100, delay: 1})
+        heroImg.from(".px-hero-line" , { scaleX: 0, })
 
-		var heroShape = gsap.timeline({
-				defaults: { duration:1,
-                ease: "ease1", } 
-		});
-        heroShape.from(".px-hero-shape-single" , { yPercent: 100, stagger: .2, delay: 2 })
 
 		var heroText = gsap.timeline({
 				defaults: { 
@@ -154,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     },
                     yPercent: 0,
                     opacity: 1,
+					duration: 1,
                     ease: "Back.easeOut",
                     stagger: 0.2,
                 });
@@ -163,6 +157,17 @@ document.addEventListener("DOMContentLoaded", function () {
     
 	})
 
+});
+
+
+
+$(window).scroll(function() {
+	if ($(this).scrollTop() > 2){
+	$('.wa-sticky-header-2').addClass('has-sticky');
+	}
+	else{
+	$('.wa-sticky-header-2').removeClass('has-sticky');
+	}
 });
 
 $(window).scroll(function() {
@@ -226,6 +231,54 @@ jQuery(".mobile-main-navigation li.dropdown").append('<span class="dropdown-btn"
 			jQuery(this).toggleClass("active"),
 			jQuery(this).parent().find("> .dropdown-menu").toggleClass("active"),
 			jQuery(this).parent().find("> .dropdown-menu").slideToggle());
+});
+
+
+
+// slideInUp
+gsap.utils.toArray('.wa-fadeInUp').forEach((item) => {
+	gsap.from(item, {
+	  y: 30,
+	  ease: "Back.easeOut",
+	  autoAlpha: 0,
+	  duration: 1,
+	  scrollTrigger: {
+		trigger: item,
+		start: "top 90%",
+		toggleActions: 'play none none reverse',
+		markers: false,
+	  },
+	});
+});
+
+gsap.utils.toArray('.demo-skew').forEach((item) => {
+	gsap.from(item, {
+	  rotation: 7,
+	  ease: "Back.easeOut",
+	  autoAlpha: 0,
+	  duration: 1,
+	  scrollTrigger: {
+		trigger: item,
+		start: "top 90%",
+		toggleActions: 'play none none reverse',
+		markers: false,
+	  },
+	});
+});
+
+gsap.utils.toArray('.feature-scale').forEach((item) => {
+	gsap.from(item, {
+	  scale: .9,
+	  ease: "Back.easeOut",
+	  autoAlpha: 0,
+	  duration: 1,
+	  scrollTrigger: {
+		trigger: item,
+		start: "top 90%",
+		toggleActions: 'play none none reverse',
+		markers: false,
+	  },
+	});
 });
 
 
@@ -396,152 +449,69 @@ pxSupportImg.from(".px-support-img-3 " , { yPercent: 100, scale: 0,}, "<.2")
 // footer-demo
 var pxFooterDemo = gsap.timeline({
 	scrollTrigger: {
-		trigger: ".px-footer-ani",
-		start: "top 120%",
+		trigger: ".px-footer-img",
+		start: "top 70%",
         toggleActions: "play reverse play reverse",
         markers: false  ,
 	},
 	defaults: { 
-		duration: 1,
+		duration: .5,
 		ease: "power1.out", 
 	}
 });
 
-pxFooterDemo.from(".px-footer-demo-1" , { yPercent: -100, opacity: 0, })
-pxFooterDemo.from(".px-footer-demo-2" , { xPercent: -100, opacity: 0, },"<")
-pxFooterDemo.from(".px-footer-demo-3" , { yPercent: 100, opacity: 0, },"<")
-pxFooterDemo.from(".px-footer-demo-4" , { xPercent: 100, opacity: 0, },"<")
-pxFooterDemo.from(".px-footer-demo-5" , { xPercent: 100, opacity: 0, },"<")
-
-// footer-area
-var pxFooterArea = gsap.timeline({
-	scrollTrigger: {
-		trigger: ".px-footer-area",
-		end: "top 20%",
-        toggleActions: "play reverse play reverse",
-        markers: false  ,
-		scrub: 1,
-	},
-	defaults: { 
-		duration: 1,
-		ease: "power1.out", 
-	}
-});
-
-pxFooterArea.from(".px-footer-ani" , { yPercent: 100,})
+pxFooterDemo.from(".px-footer-img-single img" , { yPercent: 100, stagger: -.5, })
 
 
-
-// main-demo-filter
-$(document).ready(function() {
-
-	// init Isotope
-	var $container = $('.isotope').isotope({
-	  itemSelector: '.grid-item',
-	  layoutMode: 'fitRows'
+/* 
+	preloader-marquee-activation
+*/
+if($('.bs-preloader-logo').length) {
+	$('.bs-preloader-logo').marquee({
+		gap: 90,
+		speed: 90,
+		delayBeforeStart: 0,
+		direction: 'left',
+		duplicated: true,
+		pauseOnHover: false,
+		startVisible:true,
 	});
-  
-	// filter functions
-	var filterFns = {
-	  // show if number is greater than 20
-	  numberGreaterThan50: function() {
-		var number = $(this).find('.number').text();
-		return parseInt(number, 10) > 20;
-	  },
-	  // show if name ends with -ium
-	  ium: function() {
-		var name = $(this).find('.name').text();
-		return name.match(/ium$/);
-	  }
-	};
-  
-	// bind filter button click
-	$('#filters').on('click', 'button', function() {
-	  var filterValue = $(this).attr('data-filter');
-	  // use filterFn if matches value
-	  filterValue = filterFns[filterValue] || filterValue;
-	  $container.isotope({
-		filter: filterValue
-	  });
+}
+
+
+
+// slide-text-1
+if($('.lw-marquee-text-1').length) {
+	$('.lw-marquee-text-1').marquee({
+		gap: 72,
+		speed: 80,
+		delayBeforeStart: 0,
+		direction: 'down',
+		duplicated: true,
+		pauseOnHover: false,
+		startVisible:true,
 	});
-  
-	// change is-checked class on buttons
-	$('.button-group').each(function(i, buttonGroup) {
-	  var $buttonGroup = $(buttonGroup);
-	  $buttonGroup.on('click', 'button', function() {
-		$buttonGroup.find('.is-checked').removeClass('is-checked');
-		$(this).addClass('is-checked');
-	  });
+}
+
+
+/* 
+	primary-button-1-animation
+*/
+if ($(".bs-btn-1").length) { 
+	$('.bs-btn-1')
+	.on('mouseenter', function(e) {
+			var parentOffset = $(this).offset(),
+			  relX = e.pageX - parentOffset.left,
+			  relY = e.pageY - parentOffset.top;
+			$(this).find('.shape').css({top:relY, left:relX})
+	})
+	.on('mouseout', function(e) {
+			var parentOffset = $(this).offset(),
+			  relX = e.pageX - parentOffset.left,
+			  relY = e.pageY - parentOffset.top;
+		$(this).find('.shape').css({top:relY, left:relX})
 	});
-  
-	//****************************
-	// Isotope Load more button
-	//****************************
-	var initShow = 8; //number of items loaded on init & onclick load more button
-	var counter = initShow; //counter for load more button
-	var iso = $container.data('isotope'); // get Isotope instance
-  
-	loadMore(initShow); //execute function onload
-  
-	function loadMore(toShow) {
-	  $container.find(".hidden").removeClass("hidden");
-  
-	  var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
-		return item.element;
-	  });
-	  $(hiddenElems).addClass('hidden');
-	  $container.isotope('layout');
-  
-	  //when no more to load, hide show more button
-	  if (hiddenElems.length == 0) {
-		jQuery("#load-more").hide();
-	  } else {
-		jQuery("#load-more").show();
-	  };
-  
-	}
-  
-	//append load more button
-	$(".px-demo-wrap").after('<div class="load-container"><button id="load-more" class="pf-pr-1"><span class="text" data-back="load more" data-front="load more"></span></button></div>');
-
-  
-	//when load more button clicked
-	$("#load-more").click(function() {
-	  if ($('#filters').data('clicked')) {
-		//when filter button clicked, set initial value for counter
-		counter = initShow;
-		$('#filters').data('clicked', false);
-	  } else {
-		counter = counter;
-	  };
-  
-	  counter = counter + initShow;
-  
-	  loadMore(counter);
-	});
-  
-	//when filter button clicked
-	$("#filters").click(function() {
-	  $(this).data('clicked', true);
-  
-	  loadMore(initShow);
-	});
-	
-});
-
-
-
-
-
-const section = document.querySelector('.px-demo-right');
-
-const observer = new ResizeObserver(() => {
-   ScrollTrigger.refresh(); 
-});
-
-observer.observe(section);
-
-
+}
 
 
 // bootstrap-tooltip
@@ -585,7 +555,10 @@ if($('.wow').length){
 
 
 
-
+if ($('.copyright-year').length) {
+    const currentYear = new Date().getFullYear();
+    $('.copyright-year').text(currentYear);
+}
 
 
 })(jQuery);

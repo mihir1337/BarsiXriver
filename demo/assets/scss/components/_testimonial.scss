@@ -81,7 +81,7 @@
                 display: inline-block;
                 font-size: 18px;
                 font-weight: 700;
-                color: var(--px-clr-h-1);
+                color: var(--lw-clr-h-1);
                 text-transform: capitalize;
                 line-height: 1;
                 span {
@@ -92,10 +92,11 @@
             }
         }
         .text {
+            font-family: var(--lw-font-2);
             font-size: 18px;
             line-height: 160%;
             font-weight: 400;
-            color: var(--px-clr-p-1);
+            color: var(--lw-clr-h-1);
             margin-bottom: 15px;
         }
         .ratting-wrap i {

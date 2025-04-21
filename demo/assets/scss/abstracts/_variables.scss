@@ -1,22 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root {
     scroll-behavior: inherit;
-	
-	--px-font-1:  "Inter", sans-serif;
+
+	--lw-font-1: "Albert Sans", sans-serif;
+	--lw-font-2: "Albert Sans", sans-serif;
+	--inter: "Inter", serif;
+
     
-	--px-clr-pr-1: #FF2759;
-	--px-clr-sd-1: #8B5BFA;
+	--lw-clr-pr-1: #f16319;
 
-	--px-clr-h-1: #0A0E0E;
-	--px-clr-p-1: #212527;
+	--lw-clr-sd-1: #C4EF17;
 
-	--px-clr-white-1: #ffffff;
-	--px-clr-black-1: #000000;
+	--lw-clr-h-1: #0c0c0c;
+	--lw-clr-h-2: #121212;
 
-	--px-cube-1:  cubic-bezier(0.19, 1, 0.22, 1);
+	--lw-clr-p-1: #383838;
+	--lw-clr-p-2: #424242;
+	
+	--lw-clr-white-1: #ffffff;
+
+
+	--lw-clr-black-1: #000000;
+
+	--lw-clr-gray-1: #B9B9B9;
+
+
+	--lw-clr-fawn: #f16319;
+
+
+	--lw-gd-1: #f16319;
+
+
+	--lw-cube-1:  cubic-bezier(0.2, 0.8, 0.2, 1);
+	
 }
-
-
 
 /* 
     root-variable-end

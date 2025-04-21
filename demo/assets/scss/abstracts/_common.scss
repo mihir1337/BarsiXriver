@@ -4,11 +4,11 @@
 */
 
 body {
-    font-family: var(--px-font-1);
+    font-family: var(--lw-font-1);
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
-    color: var(--px-clr-h-1);
+    color: var(--lw-clr-h-1);
     overflow-x: hidden;
 }
 
@@ -103,7 +103,7 @@ input:focus::placeholder, textarea:focus::placeholder {
 
 @media #{$over,$xxxl,$xxl,$xl,$lg,$md} {
     ::-webkit-scrollbar {
-        width: 5px;
+        width: 7px;
         background-color: transparent;
         box-shadow: none;
         border: none;
@@ -116,7 +116,7 @@ input:focus::placeholder, textarea:focus::placeholder {
     }
         
     ::-webkit-scrollbar-thumb {
-    background: var(--lg-clr-pr-1);
+    background: var(--lw-clr-pr-1);
     border-radius: 30px;
     }
 }

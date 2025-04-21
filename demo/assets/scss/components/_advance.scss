@@ -14,7 +14,9 @@
     &-wrap {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 20px;
+        gap: 24px;
+        border-radius: 20px;
+        overflow: hidden;
 
         @media #{$xl} {
             grid-template-columns: 1fr 1fr 1fr;
@@ -34,34 +36,24 @@
     }
     
     &-item {
-        height: 600px;
+        background-color: #F8F8F8;
         overflow: hidden;
-        border-radius: 8px;
-        padding: 60px 48px;
         display: flex;
         flex-direction: column;
-        position: relative;
+        gap: 95px;
+        justify-content: space-between;
 
-        @media #{$xxl,$xl,$lg,$md,$xs} {
-            padding: 60px 20px; 
-        }
 
-        .bg-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-
-            img {
-                transition: all .5s var(--px-cube-1);
-            }
+        .item-img {
+            padding-right: 30px;
+            filter: grayscale(1);
+            transition: all .5s var(--lw-cube-1);
+            transform-origin: left top;
         }
 
         .title {
             font-size: 26px;
-            margin-bottom: 15px;
+            margin-bottom: 13px;
 
 
             @media #{$xxxl,$xxl,$xl,$lg,$md,$xs} {
@@ -69,45 +61,42 @@
             }
         }
 
-        .disc {
-            opacity: 84%;
+        .content {
+            padding: 0 48px;
+            padding-bottom: 48px;
+
+            @media #{$xxl,$xl,$lg,$md,$xs} {
+                padding: 0 28px;
+                padding-bottom: 48px;
+            }
         }
+
 
         &:hover {
-            .bg-img img {
-                transform: scale(1.1);
+            .item-img {
+                filter: grayscale(0);
+                transform: scale(105%);
             }
-        }
-
-        &:first-child {
-            border: 1px solid #DFE1E5;
-        }
-
-        &:nth-child(2) {
-            .content {
-                text-align: center;
-                padding: 0 17px;
-
-                @media #{$xxxl,$xxl,$xl,$lg,$md,$xs} {
-                    padding: 0;
-                }
-            }
-        }
-
-        &:nth-child(odd) {
-            justify-content: end;
         }
 
         &:nth-child(even) {
-            .title {
-                color: var(--px-clr-white-1);
-            }
-    
-            .disc {
-                color: var(--px-clr-white-1);
-            }
+            .content {
+                padding: 0 48px;
+                padding-bottom: 0px;
+                padding-top: 48px;
 
+                @media #{$xxl,$xl,$lg,$md,$xs} {
+                    padding: 0 28px;
+                    padding-bottom: 0px;
+                    padding-top: 48px;
+                }
+            }
+            .item-img {
+                transform-origin: left bottom;
+            }
         }
+
+
     }
 }
 /* 

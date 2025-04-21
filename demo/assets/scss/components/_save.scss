@@ -2,7 +2,7 @@
 
 .px-save-1 {
     &-area {
-        background-color: #15D4D4;
+        background-color:  rgb(238, 244, 235);
     }
 
     &-top {
@@ -37,7 +37,7 @@
                 font-size: 23px;
                 font-weight: 500;
                 opacity: 80%;
-                letter-spacing: 6px;
+                letter-spacing: 2px;
                 margin-bottom: 8px;
             }
         }
@@ -97,6 +97,10 @@
                 right: 29px;
 
                 animation: jello linear 1s infinite;
+
+                path {
+                    fill: var(--lw-clr-white-1);
+                }
             }
         }
     }
@@ -106,14 +110,18 @@
 
         .para {
             margin-bottom: 24px;
+            color: var(--lw-clr-h-1);
         }
     }
 
     &-list li {
-        font-weight: 500;
+        font-weight: 600;
+
+        text-transform: capitalize;
+        color: var(--lw-clr-h-1);
 
         &:not(:last-child) {
-            margin-bottom: 5px;
+            margin-bottom: 7px;
         }
 
         i {
