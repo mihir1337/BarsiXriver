@@ -95,12 +95,6 @@ class OCDI_Demo_Importer {
         update_option( 'basa_ocdi_importer_flash', true );
         // remove hello world post
         wp_delete_post( 1, true );
-
-        // Import Elementor kit data.
-        // $tx_kit_zip = $import_path . 'elementor-kit.zip';
-        // $import_export_module = \Elementor\Plugin::$instance->app->get_component( 'import-export' );
-        // $import_settings['referrer'] = 'remote';
-        // $import_export_module->import_kit( $tx_kit_zip, $import_settings );
     }
 
     // reset all widgets and import new widgets

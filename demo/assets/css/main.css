@@ -20,10 +20,10 @@
   --lw-cube-1: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* 
+/*
     root-variable-end
 */
-/* 
+/*
     global-css-start
 */
 body {
@@ -143,10 +143,10 @@ input:focus::placeholder, textarea:focus::placeholder {
     border-radius: 30px;
   }
 }
-/* 
+/*
     global-css-start
 */
-/* 
+/*
     margin-&-padding_variable-start
 */
 .mt-5 {
@@ -1509,10 +1509,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   padding-right: 200px;
 }
 
-/* 
+/*
     margin-&-padding_variable-end
 */
-/* 
+/*
     all-common-class-start
 */
 @media (min-width: 1300px) {
@@ -1578,10 +1578,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   border-radius: 20px;
 }
 
-/* 
+/*
     all-common-class-end
 */
-/* 
+/*
 
 
 */
@@ -1667,7 +1667,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   }
 }
 
-/* 
+/*
     button-component-start
 */
 .px-menu-btn-1 {
@@ -1718,7 +1718,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   transform: translate(5px, 5px);
 }
 
-/* 
+/*
     pr-btn-1-start
 */
 .lw-pr-btn-1 {
@@ -1931,10 +1931,10 @@ input:focus::placeholder, textarea:focus::placeholder {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }
-/* 
+/*
     button-component-end
 */
-/* 
+/*
   offcanvas-start
 */
 .txa-offcanvas-box {
@@ -2028,7 +2028,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   transition-delay: 0.3s;
 }
 
-/* 
+/*
   header-menu-customization-start
 */
 .mobile-main-navigation ul li {
@@ -2094,13 +2094,13 @@ input:focus::placeholder, textarea:focus::placeholder {
   font-size: 12px;
 }
 
-/* 
+/*
   header-menu-customization-start
 */
-/* 
+/*
   mobile-menu-css-start
 */
-/* 
+/*
 	preloader-css-start
 */
 .lw-preloader {
@@ -2140,14 +2140,14 @@ input:focus::placeholder, textarea:focus::placeholder {
   width: 0px;
 }
 
-/* 
+/*
 	preloader-css-end
 */
-/* 
+/*
 
 
 */
-/* 
+/*
   header-1-css-start
 */
 .sticky_header_1:is(.sticky1) {
@@ -2396,10 +2396,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   left: -1%;
 }
 
-/* 
+/*
   header-1-css-end
 */
-/* 
+/*
   sticky-header-css-start
 */
 .txa_sticky_header {
@@ -2432,7 +2432,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   top: 20px;
 }
 
-/* 
+/*
   sticky-header-css-end
 */
 .px-hero-area {
@@ -2758,7 +2758,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   width: 100%;
 }
 
-/* 
+/*
     advance-1-start
 */
 .px-advance-area {
@@ -2848,10 +2848,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   transform-origin: left bottom;
 }
 
-/* 
+/*
     advance-1-end
 */
-/* 
+/*
     demo-start
 */
 .demo-bg-1 {
@@ -2919,7 +2919,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   font-size: 180px;
   letter-spacing: -0.02em;
   line-height: 1;
-  background-image: url(../img/bg/demo-count-bg.png);
+  background-image: url(../img/bg/demo-count-bg.webp);
   background-position: center;
   background-size: cover;
   -webkit-background-clip: text;
@@ -3091,10 +3091,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   }
 }
 
-/* 
+/*
     demo-end
 */
-/* 
+/*
     features-start
 */
 .px-features-1-bg-shape {
@@ -3209,7 +3209,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   filter: drop-shadow(-10.606px 10.606px 35.354px rgba(0, 0, 0, 0.25));
 }
 
-/* 
+/*
     features-end
 */
 .px-save-1-area {
@@ -3401,7 +3401,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   }
 }
 
-/* 
+/*
     exclusive-start
 */
 .px-exclusive-sec-title {
@@ -3469,10 +3469,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   animation: swing 1s;
 }
 
-/* 
+/*
     exclusive-end
 */
-/* 
+/*
     inner-page-start
 */
 .px-inner-page-area {
@@ -3602,7 +3602,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   }
 }
 
-/* 
+/*
     inner-page-end
 */
 .px-testimonial-scn-title {
@@ -3724,7 +3724,7 @@ input:focus::placeholder, textarea:focus::placeholder {
     transform: translateY(-100%);
   }
 }
-/* 
+/*
     support-start
 */
 .px-support-area {
@@ -3805,10 +3805,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   }
 }
 
-/* 
+/*
     support-end
 */
-/* 
+/*
     related-theme-start
 */
 .related-theme-btn {
@@ -3987,10 +3987,10 @@ input:focus::placeholder, textarea:focus::placeholder {
   transform: scaleX(1);
 }
 
-/* 
+/*
     related-theme-end
 */
-/* 
+/*
     footer-start
 */
 .px-footer-area {
@@ -4192,7 +4192,7 @@ input:focus::placeholder, textarea:focus::placeholder {
   }
 }
 
-/* 
+/*
     footer-end
 */
 
