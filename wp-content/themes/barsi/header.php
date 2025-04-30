@@ -35,13 +35,11 @@ $preloader_image = cs_get_option( 'preloader_image', get_template_directory_uri(
     <!-- preloader start -->
     <?php if( $preloader_enable == true ) : ?>
     <div class="lw-preloader">
-        <div class="lw-preloader-content">
-            <div class="bs-preloader-logo">
-                <?php if(!empty( $preloader_image['url'] )) : ?>
-                <img src="<?php echo esc_url($preloader_image['url']); ?>"
-                    alt="<?php if(function_exists('barsi_img_alt_text')) { echo barsi_img_alt_text( $preloader_image['url'] ); } ?>">
-                <?php endif; ?>
-            </div>
+        <div class="loader">
+            <?php if(!empty( $preloader_image['url'] )) : ?>
+            <img src="<?php echo esc_url($preloader_image['url']); ?>"
+                alt="<?php if(function_exists('barsi_img_alt_text')) { echo barsi_img_alt_text( $preloader_image['url'] ); } ?>">
+            <?php endif; ?>
         </div>
     </div>
     <?php endif; ?>

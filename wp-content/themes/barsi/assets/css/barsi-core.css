@@ -3185,36 +3185,80 @@ input:focus::placeholder, textarea:focus::placeholder {
   height: 100vh;
   width: 100%;
   z-index: 99999999;
-  overflow: hidden;
   display: flex;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
-  background-color: var(--bs-clr-white-1);
-  transition: all 1s cubic-bezier(0.55, 0.085, 0, 0.99);
+  background-color: white;
+  transition: 0.5s;
 }
-.lw-preloader::after {
+.lw-preloader .loader {
+  transition: 0.5s;
+  position: relative;
+  z-index: 1;
+  padding: 2rem 4rem;
+  color: #fff;
+  border-style: solid;
+  border-width: 3px;
+  --charge: hsl(var(--h, 0), 80%, 50%);
+  -o-border-image: conic-gradient(hsl(20.83, 87.8%, 51.76%) var(--a), transparent calc(var(--a) + 0.5deg)) 30;
+  border-image: conic-gradient(hsl(20.83, 87.8%, 51.76%) var(--a), transparent calc(var(--a) + 0.5deg)) 30;
+  -webkit-animation: load 2s infinite ease-in-out;
+  animation: load 2s infinite ease-in-out;
+}
+.lw-preloader .loader img {
+  max-width: 130px;
+}
+.lw-preloader .loader::after {
   content: "";
-  width: 200px;
-  height: 110px;
-  border: 2px solid var(--bs-clr-pr-1);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 1s cubic-bezier(0.55, 0.085, 0, 0.99);
+  top: -3px;
+  left: -3px;
+  border: 3px solid #000;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  z-index: -1;
+  opacity: 0.05;
 }
-.lw-preloader-content {
-  overflow: hidden;
-  width: 200px;
-  transition: all 1s cubic-bezier(0.55, 0.085, 0, 0.99);
+.lw-preloader:is(.preloaded) {
+  opacity: 0;
+  transition-delay: 0.5s;
 }
-.lw-preloader:is(.preloaded)::after {
-  width: 0px;
-}
-.lw-preloader:is(.preloaded) .lw-preloader-content {
-  width: 0px;
+.lw-preloader:is(.preloaded) .loader {
+  transform: scale(0.7);
+  opacity: 0;
 }
 
+@property --a {
+  initial-value: 0deg;
+  inherits: false;
+  syntax: "<angle>";
+}
+@property --h {
+  initial-value: 0;
+  inherits: false;
+  syntax: "<number>";
+}
+@-webkit-keyframes load {
+  0%, 10% {
+    --a: 0deg;
+    --h: 0;
+  }
+  100% {
+    --a: 360deg;
+    --h: 100;
+  }
+}
+@keyframes load {
+  0%, 10% {
+    --a: 0deg;
+    --h: 0;
+  }
+  100% {
+    --a: 360deg;
+    --h: 100;
+  }
+}
 /*
 	preloader-css-end
 */
