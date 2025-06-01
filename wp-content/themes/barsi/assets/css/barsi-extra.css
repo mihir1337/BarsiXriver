@@ -83,6 +83,7 @@ i.far.fa-check-circle {
 .breadcrumb-area.tx-front-page {
     padding-bottom: 200px;
 }
+.lw-preloader .loader::before {display: none;}
 @media(max-width: 767px)  {
     .bs-blog-3-item-single .item-img {
         height: auto;

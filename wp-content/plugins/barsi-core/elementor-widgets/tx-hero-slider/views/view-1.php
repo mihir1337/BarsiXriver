@@ -2,7 +2,7 @@
     <div class="container bs-container-2">
         <div class="bs-hero-4-content">
             <?php if(!empty( $settings['heading_title'] )) : ?>
-            <h1 class="bs-hero-4-title bs-h-4 wa-split-y cd-headline clip" data-split-delay="1s">
+            <h1 class="bs-hero-4-title bs-h-4 wa-split-y cd-headline clip tx-title" data-split-delay="1s">
                 <?php echo elh_element_kses_intermediate( $settings['heading_title'] ); ?>
                 <?php if( $settings['enable_moving_text'] === 'yes' ) : ?>
                 <span class="cd-words-wrapper single-headline">
@@ -37,7 +37,7 @@
                 <?php endif; ?>
 
                 <?php if(!empty( $settings['heading_description'] )) : ?>
-                <p class="bs-p-4 bs-hero-4-disc wa-split-y" data-split-delay="1.6s">
+                <p class="bs-p-4 bs-hero-4-disc wa-split-y tx-title-heading" data-split-delay="1.6s">
                     <?php echo elh_element_kses_intermediate( $settings['heading_description'] ); ?>
                 </p>
                 <?php endif; ?>
@@ -65,7 +65,7 @@
                             <!-- trusted -->
                             <div class="bs-hero-4-slider-img-item-trusted">
                                 <?php if(!empty( $slide['sub_title'] )) : ?>
-                                <h5 class="bs-h-4 title">
+                                <h5 class="bs-h-4 title tx-subTitle">
                                     <?php echo elh_element_kses_intermediate( $slide['sub_title'] ); ?>
                                 </h5>
                                 <?php endif; ?>
@@ -87,7 +87,7 @@
                                 <?php endif; ?>
 
                                 <?php if(!empty( $slide['description'] )) : ?>
-                                <p class="bs-p-4 disc">
+                                <p class="bs-p-4 disc tx-description">
                                     <?php echo elh_element_kses_intermediate( $slide['description'] ); ?>
                                 </p>
                                 <?php endif; ?>

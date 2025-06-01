@@ -1118,8 +1118,6 @@ if (window.matchMedia("(min-width: 992px)").matches) {
 // project-4
 if (window.matchMedia("(min-width: 992px)").matches) {
 
-
-
 	var p4content= gsap.timeline({
 		scrollTrigger: {
 			trigger: ".bs-project-4-content",
@@ -1151,9 +1149,12 @@ if (window.matchMedia("(min-width: 992px)").matches) {
 			ease: "none",
 		},
 	})
-	p4cardIns.to(".bs-project-4-card .has-card-2", { y: -30, scale: .9 });
-	p4cardIns.to(".bs-project-4-card .has-card-3", { y: -60, scale: .8 });
-	p4cardIns.to(".bs-project-4-card .has-card-4", { y: -90, scale: .7 });
+	p4cardIns.to(".bs-project-4-card .has-card-2", { y: -14, scale: .95 });
+	p4cardIns.to(".bs-project-4-card .has-card-3", { y: -28, scale: .90 });
+	p4cardIns.to(".bs-project-4-card .has-card-4", { y: -42, scale: .85 });
+	p4cardIns.to(".bs-project-4-card .has-card-5", { y: -56, scale: .80 });
+	p4cardIns.to(".bs-project-4-card .has-card-6", { y: -70, scale: .75 });
+	p4cardIns.to(".bs-project-4-card .has-card-7", { y: -84, scale: .70 });
 
 
 	gsap.to(".bs-project-4-card-pin", {
@@ -1190,12 +1191,20 @@ if (window.matchMedia("(min-width: 992px)").matches) {
 	p4cardTransform.to(".bs-project-4-card .has-card-3", { yPercent: 100, });
 	p4cardTransform.to(".bs-project-4-card .has-card-3", { opacity: 0, });
 	p4cardTransform.to(".bs-project-4-card .has-card-4 .content", { opacity: 1 },"<-50%");
-
-
+	p4cardTransform.to(".bs-project-4-card .has-card-4", { yPercent: 100, });
+	p4cardTransform.to(".bs-project-4-card .has-card-4", { opacity: 0, });
+	p4cardTransform.to(".bs-project-4-card .has-card-5 .content", { opacity: 1 },"<-50%");
+	p4cardTransform.to(".bs-project-4-card .has-card-5", { yPercent: 100, });
+	p4cardTransform.to(".bs-project-4-card .has-card-5", { opacity: 0, });
+	p4cardTransform.to(".bs-project-4-card .has-card-6 .content", { opacity: 1 },"<-50%");
+	p4cardTransform.to(".bs-project-4-card .has-card-6", { yPercent: 100, });
+	p4cardTransform.to(".bs-project-4-card .has-card-6", { opacity: 0, });
+	p4cardTransform.to(".bs-project-4-card .has-card-7 .content", { opacity: 1 },"<-50%");
 
 }
+
 // services-4
-if (window.matchMedia("(min-width: 992px)").matches) { 
+if (window.matchMedia("(min-width: 992px)").matches) {
 	var services4= gsap.timeline({
 		scrollTrigger: {
 			trigger: ".bs-services-4-item-single",

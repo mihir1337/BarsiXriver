@@ -35,4 +35,16 @@ $this->add_group_control(
     ]
 );
 
+// bottom box bg color
+$this->add_control(
+    'service_section_bottom_box_bg_color',
+    [
+        'label'     => __( 'Bottom Box Background Color', 'gilroy-core' ),
+        'type'      => Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .bs-hero-4-slider-img-item::after' => 'background-color: {{VALUE}};',
+        ],
+    ]
+);
+
 $this->end_controls_section();
