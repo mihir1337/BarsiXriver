@@ -598,6 +598,19 @@ class Tx_Team_Lists extends Element_El_Widget {
             ]
         );
 
+        // enable team box
+        $this->add_control(
+            'enable_team_box',
+            [
+                'label'        => __( 'Enable Team Box', 'barsi-core' ),
+                'type'         => Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Show', 'barsi-core' ),
+                'label_off'    => __( 'Hide', 'barsi-core' ),
+                'return_value' => 'yes',
+                'default'      => 'yes',
+            ]
+        );
+
         // enable_pagination
         $this->add_control(
             'enable_pagination',

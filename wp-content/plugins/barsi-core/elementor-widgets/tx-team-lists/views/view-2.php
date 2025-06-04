@@ -70,6 +70,7 @@
         </div>
 
         <!-- member -->
+        <?php if( $settings['enable_team_box'] === 'yes' ) : ?>
         <div class="bs-team-4-member">
             <!-- single-member -->
             <?php foreach($settings['team_members'] as $list) : ?>
@@ -107,5 +108,6 @@
             </div>
             <?php endforeach; ?>
         </div>
+        <?php endif; ?>
     </div>
 </section>
