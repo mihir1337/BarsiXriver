@@ -19,6 +19,8 @@ $this->add_control(
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .item-title' => 'color: {{VALUE}};',
+            '{{WRAPPER}} .title' => 'color: {{VALUE}};',
+
         ],
     ]
 );
@@ -29,7 +31,10 @@ $this->add_group_control(
     [
         'name'     => 'feature_title_typography',
         'label'    => __( 'Title Typography', 'barsi-core' ),
-        'selector' => '{{WRAPPER}} .item-title',
+        'selector' => '
+        {{WRAPPER}} .item-title,
+        {{WRAPPER}} .title
+        ',
     ]
 );
 
@@ -41,6 +46,7 @@ $this->add_control(
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .item-disc' => 'color: {{VALUE}};',
+            '{{WRAPPER}} .disc' => 'color: {{VALUE}};',
         ],
     ]
 );
@@ -51,7 +57,10 @@ $this->add_group_control(
     [
         'name'     => 'feature_description_typography',
         'label'    => __( 'Description Typography', 'barsi-core' ),
-        'selector' => '{{WRAPPER}} .item-disc',
+        'selector' => '
+        {{WRAPPER}} .item-disc,
+        {{WRAPPER}} .disc
+        ',
     ]
 );
 

@@ -94,4 +94,7 @@ i.far.fa-check-circle {
     .bs-projects-3-tabs-btn li {
         width: 40%;
     }
+    .bs-core-feature-6-wrap {
+        grid-template-columns: 1fr;
+    }
 }
