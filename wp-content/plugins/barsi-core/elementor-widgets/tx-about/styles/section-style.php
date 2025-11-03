@@ -35,4 +35,16 @@ $this->add_group_control(
     ]
 );
 
+// section left bg color
+$this->add_control(
+    'service_section_left_bg_color',
+    [
+        'label'     => __( 'Left Background Color', 'gilroy-core' ),
+        'type'      => Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .bs-choose-4-content::after' => 'background-color: {{VALUE}};',
+        ],
+    ]
+);
+
 $this->end_controls_section();

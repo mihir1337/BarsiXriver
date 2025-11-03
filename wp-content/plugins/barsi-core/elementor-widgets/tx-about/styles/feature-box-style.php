@@ -11,6 +11,18 @@ $this->start_controls_section(
     ]
 );
 
+// feature box bg color
+$this->add_control(
+    'feature_box_bg_color',
+    [
+        'label'     => __( 'Feature Box Background Color', 'barsi-core' ),
+        'type'      => Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .bs-choose-4-feature-single' => 'background-color: {{VALUE}};',
+        ],
+    ]
+);
+
 // TITLE COLOR
 $this->add_control(
     'feature_title_color',

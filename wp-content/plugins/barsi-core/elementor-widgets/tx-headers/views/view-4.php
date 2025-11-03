@@ -67,7 +67,8 @@
                     <?php if( $settings['enable_button'] === 'yes' ) : ?>
                     <a href="<?php echo esc_url($settings['button_link']['url']) ?>"
                     target="<?php echo esc_attr( $settings['button_link']['is_external'] ? '_blank' : '_self' ); ?>"
-                    rel="<?php echo esc_attr( $settings['button_link']['nofollow'] ? 'nofollow' : '' ); ?>" aria-label="name" class="bs-pr-btn-2 tx-button">
+                    rel="<?php echo esc_attr( $settings['button_link']['nofollow'] ? 'nofollow' : '' ); ?>" aria-label="name"
+                    class="bs-pr-btn-2 tx-button">
                         <?php if(!empty( $settings['button_text'] )) : ?>
                         <span class="text"
                             data-back="<?php echo esc_attr($settings['button_text']); ?>"

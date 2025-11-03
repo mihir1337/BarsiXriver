@@ -1,4 +1,4 @@
-<section class="bs-award-5-area pt-135 wa-fix">
+<section class="bs-award-5-area pt-135 wa-fix tx-section">
 	<div class="container bs-container-2">
 		<div class="bs-award-5-wrap">
 

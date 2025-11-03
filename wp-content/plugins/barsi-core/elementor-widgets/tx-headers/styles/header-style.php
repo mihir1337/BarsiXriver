@@ -14,6 +14,16 @@ $this->start_controls_section(
     ]
 );
 
+// header background
+$this->add_group_control(
+    Group_Control_Background::get_type(),
+    [
+        'name'     => 'header_background',
+        'label'    => __( 'Background', 'barsi-core' ),
+        'selector' => '{{WRAPPER}} .bs-header-4-main',
+    ]
+);
+
 // ENABLE POSITION ABSOLUTE
 $this->add_control(
     'enable_position_absolute',

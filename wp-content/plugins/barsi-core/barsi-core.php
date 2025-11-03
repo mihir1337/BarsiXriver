@@ -232,12 +232,12 @@ add_action( 'admin_menu', 'tx_move_media_menu' );
  */
 function tx_custom_taxonomies() {
     return [
-        // 'project-categories' => [
-        //     'title'        => 'Project Category',
-        //     'plural_title' => 'Project Categories',
-        //     'rewrite'      => 'project-cat',
-        //     'post_type'    => 'projects',
-        // ],
+        'project-categories' => [
+            'title'        => 'Project Category',
+            'plural_title' => 'Project Categories',
+            'rewrite'      => 'project-cat',
+            'post_type'    => 'projects',
+        ],
     ];
 }
 

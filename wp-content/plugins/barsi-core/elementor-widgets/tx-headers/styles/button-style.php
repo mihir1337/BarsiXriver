@@ -94,6 +94,7 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .tx-button' => 'color: {{VALUE}};',
             '{{WRAPPER}} .tx-button .text' => 'color: {{VALUE}};',
+            '{{WRAPPER}} .tx-button .text::before' => 'color: {{VALUE}};',
         ],
     ]
 );
@@ -142,6 +143,7 @@ $this->add_control(
         'selectors' => [
             '{{WRAPPER}} .tx-button:hover' => 'color: {{VALUE}};',
             '{{WRAPPER}} .tx-button:hover .text' => 'color: {{VALUE}};',
+            '{{WRAPPER}} .tx-button .text::after' => 'color: {{VALUE}};',
         ],
     ]
 );
