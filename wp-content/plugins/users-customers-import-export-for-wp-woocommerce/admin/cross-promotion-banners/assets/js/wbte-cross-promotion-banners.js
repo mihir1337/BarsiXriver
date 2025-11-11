@@ -11,11 +11,11 @@
             },
 
             moveBanner: function() {
-                $('#wt_product_import_export_pro').appendTo('#side-sortables').addClass('postbox');
+                $('#wbte_product_import_export_pro').appendTo('#side-sortables').addClass('postbox');
             },
 
             initToggleFeatures: function() {
-                const toggleBtn = $('.wt-cta-toggle');
+                const toggleBtn = $('.wbte-cta-toggle');
                 const hiddenFeatures = $('.hidden-feature');
                 
                 // Set initial text
@@ -37,11 +37,11 @@
             },
 
             initDraggable: function() {
-                const banner = $('.wt-cta-banner');
+                const banner = $('.wbte-cta-banner');
                 let originalPosition;
                 
                 banner.draggable({
-                    handle: '.wt-cta-header',
+                    handle: '.wbte-cta-header',
                     containment: 'window',
                     start: function(event, ui) {
                         originalPosition = ui.position;
@@ -56,7 +56,7 @@
             },
 
             initDismissButtons: function() {
-                $('.wt-cta-dismiss').on('click', function(e) {
+                $('.wbte-cta-dismiss').on('click', function(e) {
                     e.preventDefault();
                     var $this = $(this);
                     var $banner = $this.closest('.postbox');
@@ -65,17 +65,17 @@
                     // Determine which banner is being dismissed and use appropriate AJAX data
                     var ajaxData = {};
                     
-                    if (bannerId === 'wt_product_import_export_pro') {
+                    if (bannerId === 'wbte_product_import_export_pro') {
                         ajaxData = {
                             action: 'wt_dismiss_product_ie_cta_banner',
                             nonce: typeof wt_product_ie_cta_banner_ajax !== 'undefined' ? wt_product_ie_cta_banner_ajax.nonce : ''
                         };
-                    } else if (bannerId === 'wt_pdf_invoice_pro') {
+                    } else if (bannerId === 'wbte_pdf_invoice_pro') {
                         ajaxData = {
                             action: 'wt_dismiss_invoice_cta_banner',
                             nonce: typeof wt_invoice_cta_banner_ajax !== 'undefined' ? wt_invoice_cta_banner_ajax.nonce : ''
                         };
-                    } else if (bannerId === 'wt_coupon_import_export_pro') {
+                    } else if (bannerId === 'wbte_coupon_import_export_pro') {
                         ajaxData = {
                             action: 'wt_dismiss_smart_coupon_cta_banner',
                             nonce: typeof wt_smart_coupon_cta_banner_ajax !== 'undefined' ? wt_smart_coupon_cta_banner_ajax.nonce : ''

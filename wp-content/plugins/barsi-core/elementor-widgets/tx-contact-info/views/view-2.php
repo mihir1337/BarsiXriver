@@ -38,7 +38,7 @@
 
                 <!-- card -->
                 <?php if( $settings['enable_contact_info'] === 'yes' ) : ?>
-                <div class="bs-office-1-item">
+                <div class="bs-office-1-item tx-contactInfo">
                     <?php foreach( $settings['list_items'] as $list ) : ?>
                     <div class="bs-office-1-card wa-clip-left-right">
                         <?php if( $list['enable_icon'] === 'yes' ) : ?>

@@ -81,5 +81,29 @@ $this->add_control(
     ]
 );
 
+// description color
+$this->add_control(
+    'count_desc_color',
+    [
+        'label'     => __( 'Description Color', 'barsi-core' ),
+        'type'      => Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .item-disc' => 'color: {{VALUE}};',
+        ],
+    ]
+);
+
+
+// typography
+$this->add_group_control(
+    Group_Control_Typography::get_type(),
+    [
+        'name'     => 'count_desc_typography',
+        'label'    => __( 'Typography', 'barsi-core' ),
+        'selector' => '{{WRAPPER}} .item-disc',
+    ]
+);
+
+
 // end
 $this->end_controls_section();

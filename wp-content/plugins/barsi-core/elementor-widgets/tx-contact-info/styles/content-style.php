@@ -42,6 +42,7 @@ $this->add_control(
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
             '{{WRAPPER}} .tx-contactInfo a' => 'color: {{VALUE}};',
+            '{{WRAPPER}} .tx-contactInfo p' => 'color: {{VALUE}};',
         ],
     ]
 );
@@ -129,6 +130,30 @@ $this->add_group_control(
             {{WRAPPER}} .tx-contactInfo .content span,
             {{WRAPPER}} .tx-contactInfo .content b
         ',
+    ]
+);
+
+// button color
+$this->add_control(
+    'button_color',
+    [
+        'label'     => __( 'Button Color', 'barsi-core' ),
+        'type'      => Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .bs-office-1-card .link' => 'color: {{VALUE}};',
+        ],
+    ]
+);
+
+// link hover color
+$this->add_control(
+    'button_hover_color',
+    [
+        'label'     => __( 'Button Hover Color', 'barsi-core' ),
+        'type'      => Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .bs-office-1-card .link:hover' => 'color: {{VALUE}};',
+        ],
     ]
 );
 

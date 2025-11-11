@@ -13,6 +13,18 @@ $this->start_controls_section(
     ]
 );
 
+// hamburger color
+$this->add_control(
+    'hamburger_color',
+    [
+        'label'     => __( 'Hamburger Color', 'barsi-core' ),
+        'type'      => Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .bs-header-2-action-link .bs-offcanvas-btn-1 .line' => 'background-color: {{VALUE}};',
+        ],
+    ]
+);
+
 // MENU TEXT COLOR
 $this->add_control(
     'menu_text_color',

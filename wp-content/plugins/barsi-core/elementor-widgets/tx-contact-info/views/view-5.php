@@ -7,7 +7,7 @@
 
             <!-- single-item -->
             <?php foreach( $settings['list_items'] as $list ) : ?>
-            <div class="bs-core-feature-4-item wow fadeInRight" >
+            <div class="bs-core-feature-4-item wow fadeInRight tx-contactInfo" >
                 <?php if(!empty( $list['info_label'] )) : ?>
                 <h4 class="bs-h-4 item-title">
                     <?php echo esc_html( $list['info_label'] ); ?>

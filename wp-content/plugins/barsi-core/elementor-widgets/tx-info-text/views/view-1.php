@@ -1,4 +1,4 @@
-<div class="bs-about-1-content">
+<div class="bs-about-1-content tx-infoText">
     <?php if(!empty( $settings['info_text'] )) : ?>
     <p class="bs-p-1 disc wa-split-y wa-capitalize">
         <?php echo wp_kses($settings['info_text'], true); ?>

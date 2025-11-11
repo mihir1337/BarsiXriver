@@ -21,7 +21,7 @@ $this->add_control(
         'label'     => __( 'Title Color', 'barsi-core' ),
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .pf-accordion-item .item-header .item-title' => 'color: {{VALUE}};',
+            '{{WRAPPER}} .bs-accordion-item .item-header .item-title' => 'color: {{VALUE}};',
         ],
     ]
 );
@@ -33,7 +33,7 @@ $this->add_control(
         'label'     => __( 'Active Title Color', 'barsi-core' ),
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .pf-accordion-item .item-title:is(:not(.collapsed))' => 'color: {{VALUE}};',
+            '{{WRAPPER}} .bs-accordion-item .item-title:is(:not(.collapsed))' => 'color: {{VALUE}};',
         ],
     ]
 );
@@ -45,7 +45,7 @@ $this->add_control(
         'label'     => __( 'Text Color', 'barsi-core' ),
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .pf-accordion-item .item-body p' => 'color: {{VALUE}};',
+            '{{WRAPPER}} .bs-accordion-item .item-body p' => 'color: {{VALUE}};',
         ],
     ]
 );
@@ -56,7 +56,7 @@ $this->add_group_control(
     [
         'name'     => 'faq_typography',
         'label'    => __( 'Typography', 'barsi-core' ),
-        'selector' => '{{WRAPPER}} .pf-accordion-item .item-body p',
+        'selector' => '{{WRAPPER}} .bs-accordion-item .item-body p',
     ]
 );
 $this->add_control(
@@ -75,7 +75,7 @@ $this->add_control(
         'label'     => __( 'Left Icon Color', 'barsi-core' ),
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .pf-faq-2-accordion .pf-accordion-item .item-title .shape' => 'fill: {{VALUE}};',
+            '{{WRAPPER}} .bs-faq-2-accordion .bs-accordion-item .item-title .shape' => 'fill: {{VALUE}};',
         ],
     ]
 );
@@ -87,7 +87,7 @@ $this->add_control(
         'label'     => __( 'Active Left Icon Color', 'barsi-core' ),
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .pf-accordion-item .item-title:is(:not(.collapsed)) .shape' => 'fill: {{VALUE}} !important;',
+            '{{WRAPPER}} .bs-accordion-item .item-title:is(:not(.collapsed)) .shape' => 'fill: {{VALUE}} !important;',
         ],
     ]
 );
@@ -99,7 +99,7 @@ $this->add_control(
         'label'     => __( 'Icon Opacity', 'barsi-core' ),
         'type'      => Controls_Manager::SLIDER,
         'selectors' => [
-            '{{WRAPPER}} .pf-faq-2-accordion .pf-accordion-item .item-title .shape' => 'opacity: {{SIZE}};',
+            '{{WRAPPER}} .bs-faq-2-accordion .bs-accordion-item .item-title .shape' => 'opacity: {{SIZE}};',
         ],
     ]
 );
@@ -120,7 +120,7 @@ $this->add_group_control(
         'name'     => 'faq_right_icon_bg',
         'label'    => __( 'Right Icon Background', 'barsi-core' ),
         'types'    => ['classic', 'gradient'],
-        'selector' => '{{WRAPPER}} .pf-faq-2-accordion .pf-accordion-item .item-title:is(:not(.collapsed)) .icon',
+        'selector' => '{{WRAPPER}} .bs-faq-2-accordion .bs-accordion-item .item-title:is(:not(.collapsed)) .icon',
     ]
 );
 
@@ -131,7 +131,7 @@ $this->add_control(
         'label'     => __( 'Right Icon Color', 'barsi-core' ),
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .pf-faq-2-accordion .pf-accordion-item .item-title:is(:not(.collapsed)) .icon' => 'color: {{VALUE}};',
+            '{{WRAPPER}} .bs-faq-2-accordion .bs-accordion-item .item-title:is(:not(.collapsed)) .icon' => 'color: {{VALUE}};',
         ],
     ]
 );
@@ -143,7 +143,7 @@ $this->add_control(
         'label'     => __( 'Icon Border Color', 'barsi-core' ),
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .pf-faq-2-accordion .pf-accordion-item .item-title .icon' => 'border-color: {{VALUE}};',
+            '{{WRAPPER}} .bs-faq-2-accordion .bs-accordion-item .item-title .icon' => 'border-color: {{VALUE}};',
         ],
     ]
 );
@@ -155,7 +155,7 @@ $this->add_control(
         'label'     => __( 'Active Icon Border Color', 'barsi-core' ),
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .pf-faq-2-accordion .pf-accordion-item .item-title:is(:not(.collapsed)) .icon' => 'border-color: {{VALUE}};',
+            '{{WRAPPER}} .bs-faq-2-accordion .bs-accordion-item .item-title:is(:not(.collapsed)) .icon' => 'border-color: {{VALUE}};',
         ],
     ]
 );

@@ -62,7 +62,7 @@ class WC_Brands_Admin {
 			}
 		);
 
-		// Hiding setting for future depreciation. Only users who have touched this settings should see it.
+		// Hiding setting for future deprecation. Only users who have touched these settings should see it.
 		$setting_value = get_option( 'wc_brands_show_description' );
 		if ( is_string( $setting_value ) ) {
 
@@ -99,6 +99,7 @@ class WC_Brands_Admin {
 		// Import.
 		add_filter( 'woocommerce_csv_product_import_mapping_options', array( $this, 'add_column_to_importer_exporter' ), 10 );
 		add_filter( 'woocommerce_csv_product_import_mapping_default_columns', array( $this, 'add_default_column_mapping' ), 10 );
+		add_filter( 'woocommerce_product_importer_formatting_callbacks', array( $this, 'add_formatting_callback' ), 10, 2 );
 		add_filter( 'woocommerce_product_import_inserted_product_object', array( $this, 'process_import' ), 10, 2 );
 
 		// Export.
@@ -475,10 +476,10 @@ class WC_Brands_Admin {
 	}
 
 	/**
-	 * Description for brand page.
+	 * Brand taxonomy description.
 	 */
 	public function taxonomy_description() {
-		echo wp_kses_post( wpautop( __( 'Brands be added and managed from this screen. You can optionally upload a brand image to display in brand widgets and on brand archives', 'woocommerce' ) ) );
+		echo wp_kses_post( wpautop( __( 'Brands can be added and managed from this screen. You can optionally upload a brand image to display in brand widgets and on brand archives', 'woocommerce' ) ) );
 	}
 
 	/**
@@ -637,10 +638,10 @@ class WC_Brands_Admin {
 	}
 
 	/**
-	 * Save permalnks settings.
+	 * Save permalink settings.
 	 *
 	 * We need to save the options ourselves;
-	 * settings api does not trigger save for the permalinks page.
+	 * settings api does not trigger save for the permalink page.
 	 */
 	public function save_permalink_settings() {
 		if ( ! is_admin() ) {
@@ -690,18 +691,38 @@ class WC_Brands_Admin {
 	}
 
 	/**
+	 * Add formatting callback for brand_ids during CSV import.
+	 *
+	 * @param  array               $callbacks Formatting callbacks.
+	 * @param  WC_Product_Importer $importer  Importer instance.
+	 * @return array $callbacks
+	 */
+	public function add_formatting_callback( $callbacks, $importer ) {
+		$mapped_keys = $importer->get_mapped_keys();
+
+		// Find the index of brand_ids in the mapped keys.
+		$brand_ids_index = array_search( 'brand_ids', $mapped_keys, true );
+
+		// If brand_ids exists in the mapping, add our custom parser.
+		if ( false !== $brand_ids_index ) {
+			$callbacks[ $brand_ids_index ] = array( $this, 'parse_brands_field' );
+		}
+
+		return $callbacks;
+	}
+
+	/**
 	 * Add brands to newly imported product.
 	 *
 	 * @param WC_Product $product Product being imported.
 	 * @param array      $data    Raw CSV data.
 	 */
 	public function process_import( $product, $data ) {
-		if ( empty( $data['brand_ids'] ) ) {
+		if ( empty( $data['brand_ids'] ) || ! is_array( $data['brand_ids'] ) ) {
 			return;
 		}
 
-		$brand_ids = array_map( 'intval', $this->parse_brands_field( $data['brand_ids'] ) );
-
+		$brand_ids = array_map( 'intval', $data['brand_ids'] );
 		wp_set_object_terms( $product->get_id(), $brand_ids, 'product_brand' );
 	}
 

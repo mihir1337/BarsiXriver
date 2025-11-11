@@ -437,3 +437,104 @@ function register_document_controls( $document ) {
     $document->end_controls_section();
 }
 add_action( 'elementor/documents/register_controls', 'register_document_controls' );
+
+add_action( 'elementor/element/text-editor/section_style/after_section_end', function( $element, $args ) {
+
+    $element->start_controls_section(
+        'bs_project_details_custom_style_section',
+        [
+            'label' => __( 'Project Details Style', 'text-domain' ),
+            'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+	// big letter color
+	$element->add_control(
+		'bs_project_details_big_letter_color',
+		[
+			'label'     => __( 'Project Details Big Letter Color', 'text-domain' ),
+			'type'      => \Elementor\Controls_Manager::COLOR,
+			'selectors' => [
+				'{{WRAPPER}} .bs-project-details-content .big-letter' => 'color: {{VALUE}};',
+			],
+		]
+	);
+
+	// typography
+	$element->add_group_control(
+		\Elementor\Group_Control_Typography::get_type(),
+		[
+			'name'     => 'bs_project_details_big_letter_typography',
+			'label'    => __( 'Typography', 'text-domain' ),
+			'selector' => '{{WRAPPER}} .bs-project-details-content .big-letter',
+		]
+	);
+
+    $element->add_control(
+        'bs_project_details_color',
+        [
+            'label'     => __( 'Project Details Text Color', 'text-domain' ),
+            'type'      => \Elementor\Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .bs-project-details-content p' => 'color: {{VALUE}};',
+            ],
+        ]
+    );
+
+	// typography
+	$element->add_group_control(
+		\Elementor\Group_Control_Typography::get_type(),
+		[
+			'name'     => 'bs_project_details_typography',
+			'label'    => __( 'Typography', 'text-domain' ),
+			'selector' => '{{WRAPPER}} .bs-project-details-content p',
+		]
+	);
+
+	// heading color
+	$element->add_control(
+		'bs_project_details_heading_color',
+		[
+			'label'     => __( 'Project Details Heading Color', 'text-domain' ),
+			'type'      => \Elementor\Controls_Manager::COLOR,
+			'selectors' => [
+				'{{WRAPPER}} .bs-project-details-content h2' => 'color: {{VALUE}};',
+			],
+		]
+	);
+
+	// typography
+	$element->add_group_control(
+		\Elementor\Group_Control_Typography::get_type(),
+		[
+			'name'     => 'bs_project_details_heading_typography',
+			'label'    => __( 'Typography', 'text-domain' ),
+			'selector' => '{{WRAPPER}} .bs-project-details-content h2',
+		]
+	);
+
+	// list items color
+	$element->add_control(
+		'bs_project_details_list_color',
+		[
+			'label'     => __( 'Project Details List Color', 'text-domain' ),
+			'type'      => \Elementor\Controls_Manager::COLOR,
+			'selectors' => [
+				'{{WRAPPER}} .bs-project-details-content ul li' => 'color: {{VALUE}};',
+			],
+		]
+	);
+
+	// typography
+	$element->add_group_control(
+		\Elementor\Group_Control_Typography::get_type(),
+		[
+			'name'     => 'bs_project_details_list_typography',
+			'label'    => __( 'Typography', 'text-domain' ),
+			'selector' => '{{WRAPPER}} .bs-project-details-content ul li',
+		]
+	);
+
+    $element->end_controls_section();
+
+}, 10, 2 );

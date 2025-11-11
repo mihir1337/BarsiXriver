@@ -51,6 +51,18 @@ $this->add_control(
     ]
 );
 
+// date color
+$this->add_control(
+    'post_date_color',
+    [
+        'label'     => __( 'Date Color', 'gilroy-core' ),
+        'type'      => Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .bs-blog-4-item .item-meta' => 'color: {{VALUE}};',
+        ],
+    ]
+);
+
 // cat meta text color
 $this->add_control(
     'post_cat_color',

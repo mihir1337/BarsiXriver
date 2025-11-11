@@ -2,7 +2,6 @@
 
 use Duplicator\Core\Controllers\ControllersManager;
 use Duplicator\Utils\LinkManager;
-use Duplicator\Utils\Upsell;
 use Duplicator\Libs\Snap\SnapIO;
 use Duplicator\Libs\Snap\SnapUtil;
 
@@ -41,7 +40,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'save') {
     DUP_Settings::Set('package_mysqldump_path', $mysqldump_exe_file);
     DUP_Settings::Set('package_ui_created', sanitize_text_field($_POST['package_ui_created']));
 
-    switch (filter_input(INPUT_POST, 'installer_name_mode', FILTER_DEFAULT)) {
+    switch (sanitize_text_field($_POST['installer_name_mode'] ?? '')) {
         case DUP_Settings::INSTALLER_NAME_MODE_WITH_HASH:
             DUP_Settings::Set('installer_name_mode', DUP_Settings::INSTALLER_NAME_MODE_WITH_HASH);
             break;
@@ -183,11 +182,11 @@ $actionUrl              = ControllersManager::getMenuLink(ControllersManager::SE
                                    . 'provider for details on the correct path.', 'duplicator');
                                                 ?>"></i>
                             <br/>
-                            <input 
-                                type="text" name="package_mysqldump_path" 
-                                id="package_mysqldump_path" 
-                                value="<?php echo esc_attr($package_mysqldump_path); ?>" 
-                                placeholder="<?php esc_attr_e("/usr/bin/mypath/mysqldump", 'duplicator'); ?>" 
+                            <input
+                                type="text" name="package_mysqldump_path"
+                                id="package_mysqldump_path"
+                                value="<?php echo esc_attr($package_mysqldump_path); ?>"
+                                placeholder="<?php esc_attr_e("/usr/bin/mypath/mysqldump", 'duplicator'); ?>"
                             >
                             <div class="dup-feature-notfound">
                                 <?php
@@ -299,7 +298,7 @@ $actionUrl              = ControllersManager::getMenuLink(ControllersManager::SE
                                         '%1$s and %2$s represents the opening and closing HTML tags for an anchor or link',
                                         'duplicator'
                                     ),
-                                    '<a href="' . esc_url(Upsell::getCampaignUrl('package_settings_daf', 'Duplicator Pro')) . '" target="_blank">',
+                                    '<a href="' . esc_url(LinkManager::getCampaignUrl('package_settings_daf', 'Duplicator Pro')) . '" target="_blank">',
                                     '</a>'
                                 );
                                 ?>

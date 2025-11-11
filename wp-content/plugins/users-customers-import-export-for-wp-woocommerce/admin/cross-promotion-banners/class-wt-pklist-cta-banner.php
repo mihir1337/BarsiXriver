@@ -11,12 +11,21 @@ if (! defined('ABSPATH')) {
 
 if (!class_exists('Wt_Invoice_Cta_Banner')) {
     class Wt_Invoice_Cta_Banner {
+
+        /**
+         * Is BFCM season.
+         * @var bool
+         */
+        private static $is_bfcm_season = false;
+
         /**
          * Constructor.
          */
         public function __construct() {  
             // Check if premium plugin is active
             if (!in_array('wt-woocommerce-invoice-addon/wt-woocommerce-invoice-addon.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+                self::$is_bfcm_season = method_exists( 'Wt_Import_Export_For_Woo_Basic', 'is_bfcm_season' ) && Wt_Import_Export_For_Woo_Basic::is_bfcm_season();
+
                 add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
                 add_action('add_meta_boxes', array($this, 'add_meta_box'));
                 add_action('wp_ajax_wt_dismiss_invoice_cta_banner', array($this, 'dismiss_banner'));
@@ -64,8 +73,8 @@ if (!class_exists('Wt_Invoice_Cta_Banner')) {
         public function add_meta_box() {
             if( !defined( 'WT_PDF_INVOICE_PLUGIN_DISPLAY_BANNER' ) ){
                 add_meta_box(
-                    'wt_pdf_invoice_pro',
-                    '—',
+                    'wbte_pdf_invoice_pro',
+                    self::$is_bfcm_season ? ' ' : __( 'WooCommerce PDF Invoices, Packing Slips and Credit Notes', 'users-customers-import-export-for-wp-woocommerce' ),
                     array($this, 'render_banner'),
                     array('woocommerce_page_wc-orders', 'shop_order'),
                     'side',
@@ -86,33 +95,57 @@ if (!class_exists('Wt_Invoice_Cta_Banner')) {
             $wt_admin_img_path = plugin_dir_url( __FILE__ ) . 'assets/images';
             
             if ($hide_banner) {
-                echo '<style>#wt_pdf_invoice_pro { display: none !important; }</style>';
+                echo '<style>#wbte_pdf_invoice_pro { display: none !important; }</style>';
+                return;
             }
             ?>
-            <div class="wt-cta-banner">
-                <div class="wt-cta-content">
-                    <div class="wt-cta-header">
-                        <img src="<?php echo esc_url($wt_admin_img_path . '/pdf_invoice.svg'); ?>" alt="<?php _e('Product Import Export'); ?>" class="wt-cta-icon">
-                        <h3><?php _e('WooCommerce PDF Invoices, Packing Slips and Credit Notes'); ?></h3>
-                    </div>
 
-                    <ul class="wt-cta-features">
-                        <li><?php _e('Automatically generate PDF invoices, packing slips, and credit notes'); ?></li>
-                        <li><?php _e('Use ready-made, customizable templates to match your brand'); ?></li>
-                        <li><?php _e('Print or download invoices individually or in bulk'); ?></li>
-                        <li><?php _e('Set custom invoice numbering for better organization'); ?></li>
-                        <li class="hidden-feature"><?php _e('Customize documents fully with visual or code editors'); ?></li>
-                        <li class="hidden-feature"><?php _e('Include VAT, GST, ABN, and other tax details'); ?></li>
-                        <li class="hidden-feature"><?php _e('Add "Pay Now" link on invoices'); ?></li>
-                        <li class="hidden-feature"><?php _e('Add custom fields to any order document with ease'); ?></li>
+            <style type="text/css">
+                <?php
+                if ( self::$is_bfcm_season ) {
+                    ?>
+                    #wbte_pdf_invoice_pro .postbox-header{  height: 66px; background: url( <?php echo esc_url( plugin_dir_url(__FILE__ ) . 'assets/images/bfcm-doc-settings-coupon.svg' ); ?> ) no-repeat 18px 0 #FFFBD5; }
+                    .wbte-cta-banner-features_head_div{ height: 80px; border-bottom: 1px solid #c3c4c7; display: flex; align-items: center; padding-left: 15px; justify-content: center; }
+                    .wbte-cta-banner-features_head_div img{ width: 50px; }
+                    .wbte-cta-banner-features_head_div h2{ font-weight: 600 !important; font-size: 13px !important; }
+                    <?php
+                } else {
+                    echo '#wbte_pdf_invoice_pro .postbox-header{  height:80px; background:url(' . esc_url( $wt_admin_img_path . '/pdf_invoice.svg' ) . ') no-repeat 18px 18px #fff; padding-left:65px; margin-bottom:18px; background-size: 45px 45px; }';
+                }
+                ?>
+            </style>
+
+            <div class="wbte-cta-banner">
+                <div class="wbte-cta-content">
+
+                    <?php
+                    if ( self::$is_bfcm_season ) {
+                        ?>
+                        <div class="wbte-cta-banner-features_head_div">
+                            <img src="<?php echo esc_url( $wt_admin_img_path . '/pdf_invoice.svg' ); ?>" alt="<?php esc_attr_e( 'upgrade box icon', 'users-customers-import-export-for-wp-woocommerce' ); ?>">
+                            <h2><?php esc_html_e( 'WooCommerce PDF Invoices, Packing Slips and Credit Notes', 'users-customers-import-export-for-wp-woocommerce' ); ?></h2>
+                        </div>
+                        <?php
+                    }
+                    ?>
+
+                    <ul class="wbte-cta-features">
+                        <li><?php esc_html_e('Automatically generate PDF invoices, packing slips, and credit notes', 'users-customers-import-export-for-wp-woocommerce'); ?></li>
+                        <li><?php esc_html_e('Use ready-made, customizable templates to match your brand', 'users-customers-import-export-for-wp-woocommerce'); ?></li>
+                        <li><?php esc_html_e('Print or download invoices individually or in bulk', 'users-customers-import-export-for-wp-woocommerce'); ?></li>
+                        <li><?php esc_html_e('Set custom invoice numbering for better organization', 'users-customers-import-export-for-wp-woocommerce'); ?></li>
+                        <li class="hidden-feature"><?php esc_html_e('Customize documents fully with visual or code editors', 'users-customers-import-export-for-wp-woocommerce'); ?></li>
+                        <li class="hidden-feature"><?php esc_html_e('Include VAT, GST, ABN, and other tax details', 'users-customers-import-export-for-wp-woocommerce'); ?></li>
+                        <li class="hidden-feature"><?php esc_html_e('Add "Pay Now" link on invoices', 'users-customers-import-export-for-wp-woocommerce'); ?></li>
+                        <li class="hidden-feature"><?php esc_html_e('Add custom fields to any order document with ease', 'users-customers-import-export-for-wp-woocommerce'); ?></li>
                     </ul>
 
-                    <div class="wt-cta-footer">
-                        <div class="wt-cta-footer-links">
-                            <a href="#" class="wt-cta-toggle" data-show-text="<?php esc_attr_e('View all premium features'); ?>" data-hide-text="<?php esc_attr_e('Show less'); ?>"><?php _e('View all premium features'); ?></a>
-                            <a href="<?php echo esc_url($plugin_url); ?>" class="wt-cta-button" target="_blank"><img src="<?php echo esc_url($wt_admin_img_path . '/promote_crown.png');?>" style="width: 15.01px; height: 10.08px; margin-right: 8px;"><?php _e('Get the plugin'); ?></a>
+                    <div class="wbte-cta-footer">
+                        <div class="wbte-cta-footer-links">
+                            <a href="#" class="wbte-cta-toggle" data-show-text="<?php esc_attr_e('View all premium features', 'users-customers-import-export-for-wp-woocommerce'); ?>" data-hide-text="<?php esc_attr_e('Show less', 'users-customers-import-export-for-wp-woocommerce'); ?>"><?php esc_html_e('View all premium features', 'users-customers-import-export-for-wp-woocommerce'); ?></a>
+                            <a href="<?php echo esc_url($plugin_url); ?>" class="wbte-cta-button" target="_blank"><img src="<?php echo esc_url($wt_admin_img_path . '/promote_crown.png');?>" style="width: 15.01px; height: 10.08px; margin-right: 8px;"><?php esc_html_e('Get the plugin', 'users-customers-import-export-for-wp-woocommerce'); ?></a>
                         </div>
-                        <a href="#" class="wt-cta-dismiss" style="display: block; text-align: center; margin-top: 15px; color: #666; text-decoration: none;"><?php _e('Dismiss'); ?></a>
+                        <a href="#" class="wbte-cta-dismiss" style="display: block; text-align: center; margin-top: 15px; color: #666; text-decoration: none;"><?php esc_html_e('Dismiss', 'users-customers-import-export-for-wp-woocommerce'); ?></a>
                     </div>
                 </div>
             </div>
@@ -124,7 +157,8 @@ if (!class_exists('Wt_Invoice_Cta_Banner')) {
          */
         public function dismiss_banner() {
             // Verify nonce for security
-            if (!wp_verify_nonce($_POST['nonce'], 'wt_dismiss_invoice_cta_banner_nonce')) {
+            $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
+            if (! wp_verify_nonce($nonce, 'wt_dismiss_invoice_cta_banner_nonce')) {
                 wp_send_json_error('Invalid nonce');
             }
 
