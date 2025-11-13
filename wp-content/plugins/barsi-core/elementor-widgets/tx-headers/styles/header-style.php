@@ -20,7 +20,10 @@ $this->add_group_control(
     [
         'name'     => 'header_background',
         'label'    => __( 'Background', 'barsi-core' ),
-        'selector' => '{{WRAPPER}} .bs-header-4-main',
+        'selector' => '
+        {{WRAPPER}} .bs-header-4-main,
+        {{WRAPPER}} .tx-header
+        ',
     ]
 );
 

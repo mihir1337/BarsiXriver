@@ -14,17 +14,6 @@ $this->start_controls_section(
     ]
 );
 
-// HEADER TOP BACKGROUND
-$this->add_group_control(
-    Group_Control_Background::get_type(),
-    [
-        'name'     => 'header_top_background',
-        'label'    => __( 'Background', 'barsi-core' ),
-        'types'    => [ 'classic', 'gradient' ],
-        'selector' => '{{WRAPPER}} .pf-header-2-top',
-    ]
-);
-
 // phone iocn color
 $this->add_control(
     'phone_icon_color',
