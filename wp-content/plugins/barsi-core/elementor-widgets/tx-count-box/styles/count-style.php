@@ -19,7 +19,6 @@ $this->add_control(
         'label'     => __( 'Count Number Color', 'barsi-core' ),
         'type'      => Controls_Manager::COLOR,
         'selectors' => [
-            '{{WRAPPER}} .tx-count .tx-counter'      => 'color: {{VALUE}};',
             '{{WRAPPER}} .tx-count .tx-counter span' => 'color: {{VALUE}};',
         ],
     ]
@@ -32,9 +31,30 @@ $this->add_group_control(
         'name'     => 'count_number_typography',
         'label'    => __( 'Typography', 'barsi-core' ),
         'selector' => '
-                    {{WRAPPER}} .tx-count .tx-counter,
-                    {{WRAPPER}} .tx-count .tx-counter span
-                ',
+            {{WRAPPER}} .tx-count .tx-counter span
+        ',
+    ]
+);
+
+// count prefix color
+$this->add_control(
+    'count_prefix_color',
+    [
+        'label'     => __( 'Count Prefix Color', 'barsi-core' ),
+        'type'      => Controls_Manager::COLOR,
+        'selectors' => [
+            '{{WRAPPER}} .tx-counter' => 'color: {{VALUE}};',
+        ],
+    ]
+);
+
+// prefix typography
+$this->add_group_control(
+    Group_Control_Typography::get_type(),
+    [
+        'name'     => 'count_prefix_typography',
+        'label'    => __( 'Typography', 'barsi-core' ),
+        'selector' => '{{WRAPPER}} .tx-counter',
     ]
 );
 

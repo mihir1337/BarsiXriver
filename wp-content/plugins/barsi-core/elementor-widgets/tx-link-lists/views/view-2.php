@@ -1,4 +1,4 @@
-<ul class="bs-project-details-meta m-0">
+<ul class="bs-project-details-meta m-0 tx-listItems">
     <?php foreach( $settings['list_items'] as $list ) : ?>
     <li>
         <?php if(!empty( $list['info_label'] )) : ?>

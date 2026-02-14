@@ -1287,13 +1287,6 @@ body:not(.admin-bar) .tx-header.sticky-on {
 	}
 }
 
-.single-tf-header .tx-footer,
-.single-tf-footer .tx-header,
-.single-tf-footer .tx-footer,
-.single-tf-footer .tx-breadcrumb,
-.single-tf-header .tx-breadcrumb {
-	display: none;
-}
 .elementor-editor-preview .transparent-header,
 .elementor-editor-active .transparent-header,
 .single-tf-header .tx-header
@@ -1314,15 +1307,6 @@ body:not(.admin-bar) .tx-header.sticky-on {
 	visibility: visible !important;
 	opacity: 1 !important;
 }
-.single-tf-footer .elementor,
-.single-tf-header .elementor {
-	display: none;
-}
-.single-tf-footer .page-wrapper .elementor,
-.single-tf-header .fix .elementor {
-	display: block;
-}
-
 /* custom css  */
 button {
 	background: transparent;

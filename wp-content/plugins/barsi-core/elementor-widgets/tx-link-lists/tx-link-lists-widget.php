@@ -444,6 +444,7 @@ class Tx_Link_Lists extends Element_El_Widget {
                 'name'     => 'text_typography',
                 'label'    => __( 'Typography', 'barsi-core' ),
                 'selector' => '
+                {{WRAPPER}} .tx-listItems b,
                 {{WRAPPER}} .tx-listItems li,
                 {{WRAPPER}} .tx-listItems a,
                 {{WRAPPER}} .tx-listItems span
